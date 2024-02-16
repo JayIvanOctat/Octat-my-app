@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <script src="todolist.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,33 +58,6 @@
             <!-- Tasks will be added dynamically here -->
         </ul>
     </div>
-
-    <script>
-        function addTask() {
-            var taskInput = document.getElementById("task-input");
-            var taskText = taskInput.value.trim();
-
-            if (taskText !== "") {
-                var taskList = document.getElementById("tasks");
-
-                var li = document.createElement("li");
-                li.textContent = taskText;
-
-                var span = document.createElement("span");
-                span.textContent = "❌";
-                span.className = "delete";
-                span.onclick = function() {
-                    li.remove();
-                };
-
-                li.appendChild(span);
-                taskList.appendChild(li);
-
-                taskInput.value = "";
-            } else {
-                alert("Please enter a task!");
-            }
-        }
-    </script>
+</body>
 </body>
 </html>
