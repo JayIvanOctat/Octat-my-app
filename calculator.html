@@ -1,106 +1,116 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Navigation Bar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        #calculator {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
 
-<head> 
-	<title>JavaScript Calculator</title>
-	<script src="calculator.js"></script>
-	<script src= 
-"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
-		integrity= 
-"sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"></script> 
-	<script src= 
-"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
-		integrity= 
-"sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
-		crossorigin="anonymous"
-		referrerpolicy="no-referrer"></script> 
+<header>
+    <h1>Calculator</h1>
+</header>
 
-		<h1><a href="index.html">Back to Home</a></h1>
-		
-	
-	<!-- For styling -->
-	<style> 
-		table { 
-			border: 1px solid black; 
-			margin-left: auto; 
-			margin-right: auto; 
-		} 
+<nav>
+    <a href="index.html">My Apps</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
 
-		input[type="button"] { 
-			width: 100%; 
-			padding: 20px 40px; 
-			background-color: rgb(9, 172, 221); 
-			color: white; 
-			font-size: 24px; 
-			font-weight: bold; 
-			border: none; 
-			border-radius: 5px; 
-		} 
+<div id="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="appendToDisplay('1')">1</button>
+    <button onclick="appendToDisplay('2')">2</button>
+    <button onclick="appendToDisplay('3')">3</button>
+    <button onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button onclick="appendToDisplay('4')">4</button>
+    <button onclick="appendToDisplay('5')">5</button>
+    <button onclick="appendToDisplay('6')">6</button>
+    <button onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button onclick="appendToDisplay('7')">7</button>
+    <button onclick="appendToDisplay('8')">8</button>
+    <button onclick="appendToDisplay('9')">9</button>
+    <button onclick="appendToDisplay('*')">*</button>
+    <br>
+    <button onclick="appendToDisplay('0')">0</button>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="appendToDisplay('/')">/</button>
+</div>
 
-		input[type="text"] { 
-			padding: 20px 30px; 
-			font-size: 24px; 
-			font-weight: bold; 
-			border: none; 
-			border-radius: 5px; 
-			border: 2px solid black; 
-		} 
-	</style> 
-</head> 
-	
-<body> 
-	
-	<!-- Use Table to Create Calculator Structure Design -->
-	<table id="calcu"> 
-		<tr> 
-			<td colspan="3"><input type="text" id="result"></td> 
-			<td><input type="button" value="c" onclick="clr()" /> </td> 
-		</tr> 
-		<tr> 
-			<td><input type="button" value="1" onclick="dis('1')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="2" onclick="dis('2')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="3" onclick="dis('3')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="/" onclick="dis('/')"
-						onkeydown="myFunction(event)"> </td> 
-		</tr> 
-		<tr> 
-			<td><input type="button" value="4" onclick="dis('4')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="5" onclick="dis('5')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="6" onclick="dis('6')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="*" onclick="dis('*')"
-						onkeydown="myFunction(event)"> </td> 
-		</tr> 
-		<tr> 
-			<td><input type="button" value="7" onclick="dis('7')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="8" onclick="dis('8')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="9" onclick="dis('9')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="-" onclick="dis('-')"
-						onkeydown="myFunction(event)"> </td> 
-		</tr> 
-		<tr> 
-			<td><input type="button" value="0" onclick="dis('0')"
-						onkeydown="myFunction(event)"> </td> 
-			<td><input type="button" value="." onclick="dis('.')"
-						onkeydown="myFunction(event)"> </td> 
-			
-			<!-- solve function call function solve to evaluate value -->
-			<td><input type="button" value="=" onclick="solve()"> </td> 
+<script>
+    function appendToDisplay(value) {
+        document.getElementById("display").value += value;
+    }
 
-			<td><input type="button" value="+" onclick="dis('+')"
-						onkeydown="myFunction(event)"> </td> 
-		</tr> 
-	</table> 
-</body> 
+    function clearDisplay() {
+        document.getElementById("display").value = "";
+    }
 
-</html> 
+    function calculate() {
+        var displayValue = document.getElementById("display").value;
+        try {
+            var result = eval(displayValue);
+            document.getElementById("display").value = result;
+        } catch (error) {
+            document.getElementById("display").value = "Error";
+        }
+    }
+</script>
+
+</body>
+</html>
