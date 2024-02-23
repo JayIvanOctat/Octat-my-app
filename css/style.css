@@ -1,0 +1,47 @@
+    body {
+        background-image: url("https://png.pngtree.com/background/20230618/original/pngtree-neon-glow-on-black-and-green-abstract-geometric-background-futuristic-3d-picture-image_3750355.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    nav {
+        background-color: #444;
+        padding: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
+
+    nav a:hover {
+        background-color: #666;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-image: url("https://png.pngtree.com/background/20230617/original/pngtree-luxurious-green-geometric-background-with-illuminated-scene-for-advertising-a-3d-picture-image_3706853.jpg");
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        background-color: #333;
+        color: #00cf56;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
